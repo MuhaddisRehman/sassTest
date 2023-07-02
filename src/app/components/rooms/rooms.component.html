@@ -2,3 +2,8 @@
 <div [hidden]="hideRooms">
     Number of Rooms: <div [innerText]="numberOfRooms"></div>
 </div>
+{{rooms ?? "no rooms"}}
+<div *ngIf = rooms.availableRooms>
+    Rooms List
+</div>
+<button (click)="toggle()">Toggle</button>

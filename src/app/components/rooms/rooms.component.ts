@@ -16,4 +16,7 @@ export class RoomsComponent {
     availableRooms:10,
     bookedRooms:5
   }
+  toggle(){
+    this.hideRooms = !this.hideRooms
+  }
 }
