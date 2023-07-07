@@ -1,0 +1,59 @@
+Rooms List
+    <table class="table table-hover table-bordered rounded-bottom">
+        <thead>
+            <tr>
+                <th>SR</th>
+                <th>Even/Odd</th>
+                <th>Room Number</th>
+                <th>Room Type</th>
+                <th>Room Price</th>
+                <th>Room Amenities</th>
+                <th>CheckIin Time</th>
+                <th>Checkout Time</th>
+                <th>Rating</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr [ngClass]="e?'even':'odd'" *ngFor="let room of rooms; let i = index;let e = even;let o = odd;">
+                <td>
+                    {{i|percent}}
+                </td>
+                <td>
+                    {{e?"Odd":"Even"}}
+                </td>
+                <td>
+                    {{room.roomNumber}}
+                </td>
+                <td>
+                    {{room.roomType}}
+                </td>
+                <td>
+                    {{room.price |currency}}
+                </td>
+                <td>
+                    {{room.amenities |titlecase}}
+                </td>
+                <td>
+                    {{room.checkinTime |date : 'd/M/yyyy'}}
+                </td>
+                <td>
+                    {{room.checkoutTime|date}}
+                </td>
+                <td>
+                    {{room.rating|number:'1.0-0'}}
+                </td>
+                <td>
+                    <button    
+                        type="button" 
+                        class="btn btn-primary" 
+                        data-toggle="button" 
+                        aria-pressed="false" 
+                        autocomplete="off"
+                        (click)="selectRoom(room)">
+                            Select
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+
+    </table>
